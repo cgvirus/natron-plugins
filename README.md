@@ -1,14 +1,39 @@
 # Natron Community Plugins
 ### A collection of Natron plugins made by the community
 ## Installation
- * [Download version 2.1.7](https://github.com/NatronVFX/natron-plugins/releases/tag/2.1.7)
+ To install download the Repo as a ZIP file via https://github.com/NatronVFX/natron-plugins/archive/master.zip
+ 
+ Unzip into any PyPlug folder but the recommended locations are...
+ 
+    Windows: "C:\Program Files\Common Files\Natron\Plugins"
+    
+    OSX:     "/Library/Application Support/Natron/Plugins"
+    
+    Linux:   "/usr/share/Natron/Plugins"
+    
+
+Finally edit the plugins location in Natron preferences to allow it to find them during startup, if it's not already.
+If you want a particular folder only you can use http://kinolien.github.io/gitzip/ and put the URL to the folder you want there. Also you can install individual .py files (and their accompanied png icon files).
 
 
-You can use the installer or download the zip file from github.
-Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in Natron preferences
+## Available Plugins
 
+### BL/Color
+- <img src='/BL/Color/bl_Bytes/bl_Bytes.png' width='24'> **[bl_Bytes](/BL/Color/bl_Bytes/README.md)** : Converts the picture in another byte space. This is of course a simple simulation as Natron works only in 32 floating point color space.
 
-## Available Plugins 
+- <img src='/BL/Color/bl_Compress/bl_Compress.png' width='24'> **[bl_Compress](/BL/Color/bl_Compress/README.md)** : A common color correction function that pushes the low color to a value and the high color to one another. While tempting to made a color matching between 2 picture this PyPlug might be really usefull.
+
+- <img src='/BL/Color/bl_Expand/bl_Expand.png' width='24'> **[bl_Expand](/BL/Color/bl_Expand/README.md)** : Does the exact reverse of the Compress node. It stretches the color between to low and high color values.
+
+- <img src='/BL/Color/bl_Monochrome/bl_Monochrome.png' width='24'> **[bl_Monochrome](/BL/Color/bl_Monochrome/README.md)** : Same as the Shake's Monochrome node. You can play independently with the 3 color components.
+
+- <img src='/BL/Color/bl_Slice/bl_Slice.png' width='24'> **[bl_Slice](/BL/Color/bl_Slice/README.md)** : Cut a color slice of the picture and create a mask of the result.
+
+- <img src='/BL/Color/bl_Threshold/bl_Threshold.png' width='24'> **[bl_Threshold](/BL/Color/bl_Threshold/README.md)** : Thresholds the image using a color value, a range of thresholding and a replacement color.
+
+### BL/Image
+- <img src='/BL/Image/bl_Arc/bl_Arc.png' width='24'> **[bl_Arc](/BL/Image/bl_Arc/README.md)** : A circle drawer.
+
 ### Channel
 - <img src='/Channel/ChannelOffset/ChannelOffset.png' width='32'> **[ChannelOffset](/Channel/ChannelOffset/README.md)** : Easier to use than the basic TransformMasked node, with additional blur option, and auto-edge extension feature.
 
@@ -367,7 +392,7 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 - <img src='/Merge/ZCombine/ZCombine.png' width='32'> **[ZCombine](/Merge/ZCombine/README.md)** : Mix two images according to their Zbuffer.
 
 ### Relight
-- <img src='/Relight/Luma_to_Normals/Luma_to_Normals.png' width='32'> **[Luma_to_Normals](/Relight/Luma_to_Normals/README.md)** : Converts any image to normals, using it's Luma Channel. Provides most accurate results used on displacement maps or Zdepth passes.
+- <img src='/Relight/Vector_Tools/Luma_to_Normals/Luma_to_Normals.png' width='32'> **[Luma_to_Normals](/Relight/Vector_Tools/Luma_to_Normals/README.md)** : Converts any image to normals, using it's Luma Channel. Provides most accurate results used on displacement maps or Zdepth passes.
 
 - <img src='/Relight/ReFlect/ReFlect.png' width='32'> **[ReFlect](/Relight/ReFlect/README.md)** : Take a Normal pass and an image and map it to reflection, similar to matcap in 3D render.
 
@@ -375,9 +400,17 @@ Copy / Paste the .py files into your Pyplug dir, or edit the plugins location in
 
 - <img src='/Relight/SSAO/SSAO.png' width='32'> **[SSAO](/Relight/SSAO/README.md)** : Generate an AO pass from a Z pass.
 
-- <img src='/Relight/UV_to_Vectors/UV_to_Vectors.png' width='32'> **[UV_to_Vectors](/Relight/UV_to_Vectors/README.md)** : Converts a distorted UV map to motion vectors.
+- <img src='/Relight/Vector_Tools/UV_Map_Generator/UV_Map_Generator.png' width='32'> **[UV_Map_Generator](/Relight/Vector_Tools/UV_Map_Generator/README.md)** : Generates a default UV map at any resolution. Can be used to run through a lens distortion in another software or any sort of distorion that can then be re-applied with an STMap node.
 
-- <img src='/Relight/Vectors_to_UV/Vectors_to_UV.png' width='32'> **[Vectors_to_UV](/Relight/Vectors_to_UV/README.md)** : Converts Motion Vectors to an UV map.
+- <img src='/Relight/Vector_Tools/UV_to_Vectors/UV_to_Vectors.png' width='32'> **[UV_to_Vectors](/Relight/Vector_Tools/UV_to_Vectors/README.md)** : Converts a distorted UV map to motion vectors.
+
+- <img src='/Relight/Vector_Tools/Vectors_Direction/Vectors_Direction.png' width='32'> **[Vectors_Direction](/Relight/Vector_Tools/Vectors_Direction/README.md)** : An utility to rotate 2D vectors such as motion vectors, and flip them if necessary.
+
+- <img src='/Relight/Vector_Tools/Vectors_Magnitude/Vectors_Magnitude.png' width='32'> **[Vectors_Magnitude](/Relight/Vector_Tools/Vectors_Magnitude/README.md)** : An utility to see the magnitude of motion vectors, usually simply as information for the artist.
+
+- <img src='/Relight/Vector_Tools/Vectors_Normalize/Vectors_Normalize.png' width='32'> **[Vectors_Normalize](/Relight/Vector_Tools/Vectors_Normalize/README.md)** : Will scale every vector in a vector pass so that each vctor's magnitude is 1, while keeping the direction. Works on 2D and 3D vectors.
+
+- <img src='/Relight/Vector_Tools/Vectors_to_UV/Vectors_to_UV.png' width='32'> **[Vectors_to_UV](/Relight/Vector_Tools/Vectors_to_UV/README.md)** : Converts Motion Vectors to an UV map.
 
 - <img src='/Relight/Z2Normal/Z2Normal.png' width='32'> **[Z2Normal](/Relight/Z2Normal/README.md)** : Generate a Normal Pass from a Z pass
 
